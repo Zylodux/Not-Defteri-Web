@@ -1,16 +1,43 @@
-# React + Vite
+ Projeyi Nasıl Oluşturdum — Adım Adım
+1. Proje Kurulumu
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Kurulum için terminalde şu komutları çalıştırdım:
 
-Currently, two official plugins are available:
+npx create-vite@latest ./ --template react   # React + Vite projesi oluşturdum
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+npm install tailwindcss @tailwindcss/vite     # Tailwind CSS kurdum
 
-## React Compiler
+npm install                                  # Bağımlılıkları yükledim
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+3. Klasör Yapısını Oluşturdum
 
-## Expanding the ESLint configuration
+src/
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+── Components/    → UI bileşenleri (butonlar, formlar, kartlar)
+
+── Pages/         → Sayfa bileşenleri (ana sayfa)
+
+── Interfaces/    → Veri işlemleri (localStorage CRUD)
+
+
+1️⃣	src/Interfaces/TodoService.js localStorage ile CRUD (Ekle, Oku, Güncelle, Sil) fonksiyonları + 5 hazır örnek not yazdım	Bu dosya veri katmanı
+
+2️⃣	src/Components/TodoForm.jsx Not ekleme formu yazdım: başlık input, içerik textarea, renk seçici, Ekle butonu	useState ile form verilerini yönetiyorum
+
+3️⃣	src/Components/TodoItem.jsx Tek bir not kartı yazdım: renkli arka plan, düzenle/sil butonları, inline düzenleme modu	En karmaşık bileşen — isEditing state'i ile mod değiştiriyor
+
+4️⃣	src/Components/TodoList.jsx Notları grid (ızgara) düzeninde listeleyen bileşen yazdım	map() ile her not için bir kart oluşturuyor
+
+5️⃣	src/Pages/HomePage.jsx Ana sayfa — tüm CRUD fonksiyonlarını ve bileşenleri birleştirdim	useEffect ile sayfa yüklenince verileri çekiyor
+
+4. Stil ve Tasarım
+
+App.css dosyasında @import "tailwindcss" ile dahil ettim
+
+
+Renkli kartlar, grid düzeni, hover efektleri hep Tailwind sınıflarıyla yapıldı
+
+Proje Ekran Görüntüsü
+
+<img width="1174" height="880" alt="Ekran görüntüsü 2026-02-22 140359" src="https://github.com/user-attachments/assets/b2934edc-6754-49a9-966c-f9f340782235" />
+
